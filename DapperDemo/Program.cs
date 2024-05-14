@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 //builder.Services.AddScoped<ICompanyRepository, CompanyRepositoryDapper>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepositoryDapperSP>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepositoryDapper>();
+builder.Services.AddScoped<IBonusRepository, BonusRepository>();
 
 var app = builder.Build();
 

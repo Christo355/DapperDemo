@@ -15,20 +15,23 @@ namespace DapperDemo.Controllers
     {
         private readonly ICompanyRepository _companyRepository;
         private readonly IEmployeeRepository _employeeRepository;
+        private readonly IBonusRepository _bonusRepository;
 
         [BindProperty]
         public Employee Employee { get; set; }
 
-        public EmployeesController(ICompanyRepository companyRepository, IEmployeeRepository employeeRepository)
+        public EmployeesController(ICompanyRepository companyRepository, IEmployeeRepository employeeRepository, IBonusRepository bonusRepository)
         {
             _companyRepository = companyRepository;
             _employeeRepository = employeeRepository;
+            _bonusRepository = bonusRepository;
         }
 
         // GET: Employees
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int companyId=0)
         {
-            return View(_employeeRepository.GetAll());
+            List<Employee> employees = _bonusRepository.GetEmployeWithCompany(companyId);
+            return View(employees);
         }
 
         //// GET: Employees/Details/5
