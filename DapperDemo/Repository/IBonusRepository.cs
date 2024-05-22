@@ -4,8 +4,19 @@ namespace DapperDemo.Repository
 {
     public interface IBonusRepository
     {
-        public List<Employee> GetEmployeWithCompany(int id);
+        List<Employee> GetEmployeWithCompany(int id);
 
         Company GetCompanyWithAddresses(int id);
+
+        List<Company> GetAllCompanyWithEmployees();
+
+        void AddTestCompanyWithEmployees (Company company);
+
+        void RemoveRange(int[] companyId);
+
+        List<Company> FilterCompanyByName(string name);
+
+        void AddTestCompanyWithEmployeesWithTransation(Company company);
+
     }
 }

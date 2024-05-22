@@ -13,5 +13,12 @@ namespace DapperDemo.Models
 
         public List<Employee>? Employees { get; set; }
 
+
+
+
+        public Company()
+        {
+            Employees = new List<Employee>();
+        }
     }
 }
